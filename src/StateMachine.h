@@ -1,8 +1,7 @@
 #pragma once
-#include "State.h"
 #ifndef __STATE_MACHINE__
 #define __STATE_MACHINE__
-
+#include "State.h"
 class StateMachine
 {
 public:

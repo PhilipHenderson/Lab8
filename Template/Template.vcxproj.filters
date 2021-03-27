@@ -210,6 +210,15 @@
     <ClCompile Include="..\src\MoveToPlayer.cpp">
       <Filter>State Machine\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Transition.cpp">
+      <Filter>State Machine\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\State.cpp">
+      <Filter>State Machine\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\StateMachine.cpp">
+      <Filter>State Machine\Core Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\StartScene.h">
@@ -424,6 +433,15 @@
     </ClInclude>
     <ClInclude Include="..\src\MoveToPlayer.h">
       <Filter>State Machine\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Transition.h">
+      <Filter>State Machine\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\State.h">
+      <Filter>State Machine\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\StateMachine.h">
+      <Filter>State Machine\Core Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

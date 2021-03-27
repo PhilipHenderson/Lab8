@@ -1,12 +1,17 @@
 #include "PlayScene.h"
 #include "Game.h"
 #include "EventManager.h"
+#include "Transition.h"
 
 // required for IMGUI
 #include "imgui.h"
 #include "imgui_sdl.h"
 #include "Renderer.h"
 #include "Util.h"
+#include "Patrol.h"
+#include "MoveToLOS.h"
+#include "MoveToPlayer.h"
+#include "Attack.h"
 
 PlayScene::PlayScene()
 {
@@ -33,6 +38,8 @@ void PlayScene::update()
 	updateDisplayList();
 
 	m_CheckShipLOS(m_pTarget);
+
+	m_pHasLOSCondition->SetCondition(m_pShip->hasLOS());
 }
 
 void PlayScene::clean()
@@ -105,8 +112,6 @@ void PlayScene::start()
 	addChild(m_pTarget);
 
 
-
-	// create a dummy DecisionTree
 
 }
 
@@ -198,4 +203,52 @@ void PlayScene::m_CheckShipLOS(DisplayObject* target_object)
 
 		m_pShip->setHasLOS(hasLOS);
 	}
+}
+
+void PlayScene::m_buildStateMachine()
+{
+	//define conditions
+	m_pHasLOSCondition = new Condition();
+	m_pIsWithinDetectionRadiusCondition = new Condition();
+	m_pIsWithinCombatRangeCondition = new FloatCondition(0.0f, 2.0f);
+
+	//define states
+	State* patrolState = new State();
+	State* moveToPlayerState = new State();
+	State* moveToLOSState = new State();
+	State* attackState = new State();
+
+	//define transitions
+	Transition* moveToPlayerTransition = new Transition(m_pHasLOSCondition, moveToPlayerState);
+	Transition* moveToLOSTransition = new Transition(m_pIsWithinDetectionRadiusCondition, moveToLOSState);
+	Transition* attackTransition = new Transition(m_pIsWithinCombatRangeCondition, attackState);
+
+	//Actions
+	Patrol* patrolAction = new Patrol();
+	MoveToLOS* moveToLOSAction = new MoveToLOS();
+	MoveToPlayer* moveToPlayerAction = new MoveToPlayer();
+	Attack* attackAction = new Attack();
+
+	//setup Partol State
+	patrolState->addTransition(moveToPlayerTransition);
+	patrolState->addTransition(moveToLOSTransition);
+	patrolState->setAction(patrolAction);
+
+	//setup MoveToLOS Sate
+	moveToLOSState->addTransition(moveToPlayerTransition);
+	moveToLOSState->setAction(moveToLOSAction);
+
+	//attack State
+	attackState->addTransition(moveToPlayerTransition);
+	attackState->addTransition(moveToLOSTransition);
+	attackState->setAction(attackAction);
+
+
+
+
+	m_pStateMachine = new StateMachine();
+	m_pStateMachine->setCurrentState(patrolState);
+
+	m_pStateMachine->Update();
+
 }

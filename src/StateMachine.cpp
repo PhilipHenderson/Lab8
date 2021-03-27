@@ -23,7 +23,7 @@ void StateMachine::Update()
 
     for (auto transition : getCurrentState()->getTransitions())
     {
-        if (transition->isTriggered())
+        if (transition->getCondition()->Test())
         {
             triggeredTransition = transition;
             break;
