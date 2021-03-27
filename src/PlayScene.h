@@ -14,9 +14,6 @@
 #include "StateMachine.h"
 #include "Target.h"
 
-
-
-
 class PlayScene : public Scene
 {
 public:
@@ -30,7 +27,7 @@ public:
 	virtual void handleEvents() override;
 	virtual void start() override;
 
-	
+
 
 private:
 	// IMGUI Function
@@ -46,11 +43,12 @@ private:
 	Obstacle* m_pObstacle3;
 	void m_CheckShipLOS(DisplayObject* object);
 
-	//state machine properties
+	// State Machine properties
 
 	Condition* m_pHasLOSCondition;
 	Condition* m_pIsWithinDetectionRadiusCondition;
 	FloatCondition* m_pIsWithinCombatRangeCondition;
+
 
 	StateMachine* m_pStateMachine;
 	void m_buildStateMachine();

@@ -3,7 +3,7 @@
 #define __FLOAT_CONDITION__
 #include "Condition.h"
 
-class FloatCondition : Condition
+class FloatCondition : public Condition
 {
 public:
 	FloatCondition(float min_value = 0.0f, float max_value = 1.0f);
