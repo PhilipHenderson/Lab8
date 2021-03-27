@@ -15,6 +15,7 @@ public:
 	//getters
 	bool isTriggered() const;
 	Condition* GetCondition();
+	State* getTargetState() const;
 
 	//setters
 	void setCondition(Condition* condition);

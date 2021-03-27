@@ -19,6 +19,11 @@ Condition* Transition::GetCondition()
     return m_condition;
 }
 
+State* Transition::getTargetState() const
+{
+    return m_targetState;
+}
+
 void Transition::setTargetState(State* state)
 {
     m_targetState = state;
