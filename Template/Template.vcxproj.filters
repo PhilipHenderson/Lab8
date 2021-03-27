@@ -195,6 +195,21 @@
     <ClCompile Include="..\src\Condition.cpp">
       <Filter>State Machine\Core Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\FloatCondition.cpp">
+      <Filter>State Machine\Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Attack.cpp">
+      <Filter>State Machine\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Patrol.cpp">
+      <Filter>State Machine\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MoveToLOS.cpp">
+      <Filter>State Machine\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MoveToPlayer.cpp">
+      <Filter>State Machine\Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\StartScene.h">
@@ -391,6 +406,24 @@
     </ClInclude>
     <ClInclude Include="..\src\Condition.h">
       <Filter>State Machine\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FloatCondition.h">
+      <Filter>State Machine\Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Attack.h">
+      <Filter>State Machine\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Patrol.h">
+      <Filter>State Machine\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Action.h">
+      <Filter>State Machine\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MoveToLOS.h">
+      <Filter>State Machine\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MoveToPlayer.h">
+      <Filter>State Machine\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
