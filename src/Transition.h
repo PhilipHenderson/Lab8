@@ -9,7 +9,7 @@
 class Transition
 {
 public:
-	Transition(Condition* condition, State* target_state);
+	Transition(Condition* condition = nullptr, State* target_state = nullptr);
 	~Transition();
 
 	//getters
@@ -17,9 +17,10 @@ public:
 	Condition* GetCondition();
 
 	//setters
+	void setCondition(Condition* condition);
 	void setTargetState(State* state);
 	void setIsTriggered(bool state);
-	void setCondition(Condition* condition);
+
 
 
 private:

@@ -1,18 +1,27 @@
 #pragma once
+#include <vector>
+#include "Action.h"
 #ifndef __STATE__
 #define __STATE__
 
 class State
 {
 public:
+	friend class Transition;
+	State();
+	~State();
 
+	//getters
+	std::vector<Transition*> getTransitions();
+	Action* getAction();
 
+	//setters
+	void addTransition(Transition* transition);
+	void setAction(Action* action);
 
 private:
-
-
-
-
+	std::vector<Transition*> m_transitions;
+	Action* m_action;
 };
 
 
